@@ -4,15 +4,7 @@ const httpRequest = new XMLHttpRequest(url);
 
 /*inline function*/
 const createRequest = function (url) {
-    httpRequest.addEventListener('readystatechange',(url)=>
-    {
-        if(httpRequest.readyState === 3){
-            console.log("ReadyState is 3");
-        }
-        if(httpRequest.readyState === 4){
-            modifyHttpResponse(httpRequest);
-        }
-    });
+    httpRequest.addEventListener('readystatechange',(url)=>{ modifyHttpResponse(httpRequest);});
     httpRequest.open('GET',url);
     httpRequest.send();
 };
@@ -26,11 +18,17 @@ const modifyHttpResponse =function(httpRequest){
         else{
             UpdateUIError(httpRequest.status+ ':'+ httpRequest.responseText);
         }
+       
+        }
+        if(httpRequest.readyState === 3){
+            console.log("ReadyState is 3");
     }      
 }
 
 const ShowSuccessUI= function(data){
-    console.log(data);
+    debugger;
+    const ApiObj = JSON.parse(data);
+    console.log(ApiObj.count);
 }
 
 const UpdateUIError= function(data){
