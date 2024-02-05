@@ -26,7 +26,6 @@ const modifyHttpResponse =function(httpRequest){
 }
 
 const ShowSuccessUI= function(data){
-    debugger;
     const ApiObj = JSON.parse(data);
     console.log(ApiObj.count);
 }
