@@ -1,4 +1,6 @@
+
 const subscribeButton = document.getElementById("subscribe");
+
 subscribeButton.addEventListener("click", subscribe);
 
 function subscribe(){
